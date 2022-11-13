@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sistem Informasi Geografis</title>
+    <link rel="stylesheet" href="../css/kalkulatorgis.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.png">
+
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">DESTING</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="../src/Index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="https://www.youtube.com/watch?v=XfrWMDMvm6Q&t=675s" target="_blank">Tutorial Penggunaan Kalkulator</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="gistablelaki.html" target="_blank">Table G.I.S Laki-Laki</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="gistableperempuan.html" target="_blank">Table G.I.S Perempuan</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Kalkulator G.I.S Manual
+                      </a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#bb/u">Berat Badan Menurut Umur</a>
+                        <a class="dropdown-item" href="#tb/u">Tinggi Badan Menurut Umur</a>
+                        <a class="dropdown-item" href="#bb/tb">Berat Badan Menurut Tinggi Badan</a>
+                        <a class="dropdown-item" href="#imt/u">Indeks Masa Tubuh Menurut Umur</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+        </div>
+    </header>
+    <main>
+    <h2 style="text-align: center;">Selamat Datang Di Kalkulator GIS</h2>
+    <p style="text-align: center;">Untuk menggunakan kalkulator GIS ini, harap terlebih dahulu mengukur berat dan tinggi badan putra/putri anda</p>
+    <p style="text-align: center;">Setelah memperoleh tinggi dan berat badan putra/putri anda, harap menghitung umur putra/putri anda</p>
+
+    <div class="kalkulator-umur" id="kalgis">
+        <form >
+            <h1 id="appName">UMUR</h1>
+            <p>
+                Tanggal Lahir : <input type="date" id="bDate" required />
+            </p>
+            <p>
+                Tanggal Saat Ini : <input type="date" id="cDate" />
+            </p>
+            <input type="button" id="calbutton" value="calculate" onclick="calculateDiff()" />
+            <p id="showAge">Umur:</p>
+        </form>
+    </div>
+
+    <!--Berat Badan Umur-->
+    <!--Berat Badan Umur-->
+    <!--Berat Badan Umur-->
+    <!--Berat Badan Umur-->
+    <!--Berat Badan Umur-->
+    <div class="beratbadan-umur" id="bb/u">
+      <h1>Kalkulator Berat Badan Menurut Umur</h1> 
+      <img src="../gis/beratbadanmenurutumur.png" alt="">
+      <div class="perhitungan-atas">
+        <p>Hitungan Atas</p>
+        <input type="text" placeholder="Berat Badan"
+        id="bb">
+        <input type="text" placeholder="Median Baku" id="mb">
+        <button id="sub"> - <button>
+        <input type="text" readonly id="hasil" />
+        <script type="text/javascript"
+        >
+        var n1 = document.getElementById("bb")
+        var n2 = document.getElementById("mb")
+        var res = document.getElementById("hasil");
+        document.getElementById("sub").addEventListener("click", function(){
+          res.value =
+          parseFloat(n1.value)-parseFloat(n2.value);
+        });
+        </script>
+        </div>
+        <div class="perhitungan-bawah">
+          <p>Hitungan Bawah</p>
+          <input type="text" placeholder="Simpangan Baku"id="sb">
+          <input type="text" placeholder="Median Baku" id="mb2">
+          <button id="subi"> - <button>
+          <input type="text" readonly id="hasil2" />
+          <script type="text/javascript">
+          var n3 = document.getElementById("sb")
+          var n4 = document.getElementById("mb2")
+          var result = document.getElementById("hasil2");
+          document.getElementById("subi").addEventListener("click", function(){
+            result.value =
+            parseFloat(n3.value)-parseFloat(n4.value);
+          });
+          </script>
+          </div>
+          <div class="hitungan-atas-dibagi-hitungan-bawah">
+          <p>Hitungan Atas Dibagi Hitungan Bawah</p>
+          <button id="div"> / <button>
+          <p>Maka didapat Z-Scorenya yaitu :<input type="text" readonly id="hasil12" /></p>
+          <script type="text/javascript">
+          var n5 = document.getElementById("hasil")
+          var n6 = document.getElementById("hasil2")
+          var r = document.getElementById("hasil12");
+          document.getElementById("div").addEventListener("click", function(){
+            r.value =
+            parseFloat(n5.value)/parseFloat(n6.value);
+          });
+          </script>  
+      </div> 
+    </div>
+
+    <!--Tinggi Badan Umur-->
+    <!--Tinggi Badan Umur-->
+    <!--Tinggi Badan Umur-->
+    <!--Tinggi Badan Umur-->
+    <!--Tinggi Badan Umur-->
+    <div class="tinggibadan-umur" id="tb/u">
+      <h1>Kalkulator Tinggi Badan Menurut Umur</h1> 
+      <img src="../gis/tinggibadanmenurutumur.png" alt="">
+      <div class="perhitungan-atas">
+        <p>Hitungan Atas</p>
+        <input type="text" placeholder="Tinggi Badan"
+        id="tb">
+        <input type="text" placeholder="Median Baku" id="mbtb">
+        <button id="subtb"> - <button>
+        <input type="text" readonly id="hasiltb" />
+        <script type="text/javascript"
+        >
+        var n1tb = document.getElementById("tb")
+        var n2tb = document.getElementById("mbtb")
+        var resulttb = document.getElementById("hasiltb");
+        document.getElementById("subtb").addEventListener("click", function(){
+          resulttb.value =
+          parseFloat(n1tb.value)-parseFloat(n2tb.value);
+        });
+        </script>
+        </div>
+        <div class="perhitungan-bawah">
+          <p>Hitungan Bawah</p>
+          <input type="text" placeholder="Simpangan Baku"
+          id="sbtb2">
+          <input type="text" placeholder="Median Baku" id="mbtb2">
+          <button id="subtb2"> - <button>
+          <input type="text" readonly id="hasiltb2" />
+          <script type="text/javascript"
+          >
+          var n3tb = document.getElementById("sbtb2")
+          var n4tb = document.getElementById("mbtb2")
+          var resulttb2 = document.getElementById("hasiltb2");
+          document.getElementById("subtb2").addEventListener("click", function(){
+            resulttb2.value =
+            parseFloat(n3tb.value)-parseFloat(n4tb.value);
+          });
+          </script>
+          </div>
+          <div class="hitungan-atas-dibagi-hitungan-bawah">
+          <p>Hitungan Atas Dibagi Hitungan Bawah</p>
+          <button id="div2"> / <button>
+          <p>Maka didapat Z-Scorenya yaitu :<input type="text" readonly id="hasiltb3" /></p>
+          <script type="text/javascript"
+          >
+          var n5tb = document.getElementById("hasiltb")
+          var n6tb = document.getElementById("hasiltb2")
+          var resulttb3 = document.getElementById("hasiltb3");
+          document.getElementById("div2").addEventListener("click", function(){
+            resulttb3.value =
+            parseFloat(n5tb.value)/parseFloat(n6tb.value);
+          });
+          </script>  
+      </div> 
+    </div>
+
+    <!--Berat Badan Tinggi Badan Umur-->
+    <!--Berat Badan Tinggi Badan Umur-->
+    <!--Berat Badan Tinggi Badan Umur-->
+    <!--Berat Badan Tinggi Badan Umur-->
+    <!--Berat Badan Tinggi Badan Umur-->
+    <div class="beratbadantinggibadan-umur" id="bb/tb">
+      <h1>Kalkulator Berat Badan Menurut Tinggi Badan</h1> 
+      <img src="../gis/beratbadanmenuruttinggibadan.png" alt="">
+      <div class="perhitungan-atas">
+        <p>Hitungan Atas</p>
+        <input type="text" placeholder="Berat Badan"
+        id="bb3bbtb">
+        <input type="text" placeholder="Median Baku" id="mb3bbtb">
+        <button id="sub3bbtb"> - <button>
+        <input type="text" readonly id="hasil3bbtb" />
+        <script type="text/javascript">
+        var n1bbtb = document.getElementById("bb3bbtb")
+        var n2bbtb = document.getElementById("mb3bbtb")
+        var resultbbtb = document.getElementById("hasil3bbtb");
+        document.getElementById("sub3bbtb").addEventListener("click", function(){
+          resultbbtb.value =
+          parseFloat(n1bbtb.value)-parseFloat(n2bbtb.value);
+        });
+        </script>
+        </div>
+        <div class="perhitungan-bawah">
+          <p>Hitungan Bawah</p>
+          <input type="text" placeholder="Simpangan Baku"
+          id="sb3bbtb">
+          <input type="text" placeholder="Median Baku" id="mb3bbtb2">
+          <button id="sub3bbtb2"> - <button>
+          <input type="text" readonly id="hasil3bbtb2" />
+          <script type="text/javascript"
+          >
+          var n3bbtb = document.getElementById("sb3bbtb")
+          var n4bbtb = document.getElementById("mb3bbtb2")
+          var resultbbtb2 = document.getElementById("hasil3bbtb2");
+          document.getElementById("sub3bbtb2").addEventListener("click", function(){
+            resultbbtb2.value =
+            parseFloat(n3bbtb.value)-parseFloat(n4bbtb.value);
+          });
+          </script>
+          </div>
+          <div class="hitungan-atas-dibagi-hitungan-bawah">
+          <p>Hitungan Atas Dibagi Hitungan Bawah</p>
+          <button id="div3"> / <button>
+          <p>Maka didapat Z-Scorenya yaitu :<input type="text" readonly id="hasil3bbtb3" /></p>
+          <script type="text/javascript">
+          var n5bbtb = document.getElementById("hasil3bbtb")
+          var n6bbtb = document.getElementById("hasil3bbtb2")
+          var resultbbtb3 = document.getElementById("hasil3bbtb3");
+          document.getElementById("div3").addEventListener("click", function(){
+            resultbbtb3.value =
+            parseFloat(n5bbtb.value)/parseFloat(n6bbtb.value);
+          });
+          </script>  
+      </div> 
+    </div>
+
+    <!--Indeks Masa Tubuh Umur-->
+    <!--Indeks Masa Tubuh Umur-->
+    <!--Indeks Masa Tubuh Umur-->
+    <!--Indeks Masa Tubuh Umur-->
+    <!--Indeks Masa Tubuh Umur-->
+    <div class="indeksmasatubuh-umur" id="imt/u">
+      <h1>Kalkulator Indeks Masa Tubuh Menurut Umur</h1> 
+      <img src="../gis/indeksmasatubuhmenurutumur.png" alt="">
+      <p>Hitung dulu nilai IMT dengan cara berat badan(kg) dibagi tinggi badan dalam m </p>
+      <p >Konversi cm ke m</p>
+      <div class="imttbdibagikonversi">
+      <input type="text" placeholder="Tinggi Badan (cm)"id="tbkonversi">
+      <input type="text" value="100" id="besarkonversi" placeholder="100" readonly>
+      <button id="divkonversicm"> / <button>
+      <input type="text" readonly id="hasilkonversicm" />
+      <script type="text/javascript">
+        var konversi1 = document.getElementById("tbkonversi")
+        var konversi2 = document.getElementById("besarkonversi")
+        var resultkonversicm = document.getElementById("hasilkonversicm");
+        document.getElementById("divkonversicm").addEventListener("click", function(){
+          resultkonversicm.value =
+          parseFloat(konversi1.value)/parseFloat(konversi2.value);
+        });
+      </script>
+      </div>
+      <div class="imtbbdibagitingggi">
+      <input type="text" placeholder="Berat Badan" id="bbimt">
+      <button id="div4"> / <button>
+      <p>Maka didapat IMTnya yaitu :<input type="text" readonly id="hasilimt" /></p>
+      <script type="text/javascript">
+        var konversi3 = document.getElementById("bbimt")
+        var konversi4 = document.getElementById("hasilkonversicm")
+        var resultimt = document.getElementById("hasilimt");
+        document.getElementById("div4").addEventListener("click", function(){
+          resultimt.value =
+          parseFloat(konversi3.value)/parseFloat(konversi4.value);
+        });
+        </script>  
+    </div>
+    <div class="hitungan-atas">
+      <input type="text" placeholder="Median Baku" id="mbimt">
+      <button id="subimt4">-<button>
+      <p>Maka didapat hitungan atas yaitu :<input type="text" readonly id="hasilhitunganatas" /></p>
+      <script type="text/javascript">
+        var n1imt = document.getElementById("mbimt")
+        var n2imt = document.getElementById("hasilimt")
+        var resultimt3 = document.getElementById("hasilhitunganatas");
+        document.getElementById("subimt4").addEventListener("click", function(){
+          resultimt3.value =
+          parseFloat(n2imt.value)-parseFloat(n1imt.value);
+        });
+        </script>
+    </div>
+    <div class="hitungan-bawah">
+      <input type="text" placeholder="Simpangan Baku" id="sbimt">
+      <button id="subimt5">-<button>
+      <p>Maka didapat hitungan bawah yaitu :<input type="text" readonly id="hasilhitunganbawah" /></p>
+      <script type="text/javascript">
+        var n3imt = document.getElementById("sbimt")
+        var n4imt = document.getElementById("mbimt")
+        var resultimt4 = document.getElementById("hasilhitunganbawah");
+        document.getElementById("subimt5").addEventListener("click", function(){
+          resultimt4.value =
+          parseFloat(n3imt.value)-parseFloat(n4imt.value);
+        });
+        </script>
+    </div>
+    <div class="hitungan-atas-dibagi-hitungan-bawah">
+      <p>Hitungan Atas Dibagi Hitungan Bawah</p>
+      <button id="div5"> / <button>
+      <p>Maka didapat Z-Scorenya yaitu :<input type="text" readonly id="hasilzcoreimt" /></p>
+      <script type="text/javascript">
+      var n7imt = document.getElementById("hasilhitunganatas")
+      var n8imt = document.getElementById("hasilhitunganbawah")
+      var resultzscoreimt = document.getElementById("hasilzcoreimt");
+      document.getElementById("div5").addEventListener("click", function(){
+        resultzscoreimt.value =
+        parseFloat(n7imt.value)/parseFloat(n8imt.value);
+      });
+      </script>
+      </div>
+    </div> 
+    </main>
+    <footer>
+      <section id="kontak"></section>
+      <div class="container-fluid p-0">
+          <div class="row text-left">
+              <div class="col-md-5 col-md-5">
+                  <h1 class=""text-light>About Us</h1>
+                  <p class="text-muted">
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, architecto!
+                  </p>
+                  <p class="pt-4 text-muted">
+                      Copyright ©2022 All rights reserved | Dibuat oleh
+                      <span>Muhammad Rievnu</span>
+                  </p>
+              </div>
+              <div class="col-md-5">
+                  <h4 class="text-dark">Informasi Terbaru</h4>
+                  <p class="text-muted">Tetap Diperbarui</p>
+                  <form class="form-inline">
+                      <div class="col pl-">
+                          <div class="input-group pr-5">
+                              <input type="text" class="form-control bg-dark text-white" placeholder="Nomor WhatsApp">
+                              <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                      <i class="fas fa-arrow-right">
+                                      </i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+              <div class="col-md-2 col-sm-12">
+                  <h4 class="text-dark">Ikuti Kami</h4>
+                  <p class="text-muted">Mari menjalin silaturahmi</p>
+                  <div class="column ">
+                      <i class="fa-brands fa-whatsapp"></i>
+                      <i class="fa-brands fa-facebook-f"></i>
+                      <i class="fa-brands fa-instagram"></i>
+                      <i class="fa-brands fa-twitter"></i>
+                      <i class="fa-brands fa-youtube"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+<script src="kalkulatorgis.js"></script>
+</body>
+</html>

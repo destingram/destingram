@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loginlandingpage</title>
+    <link rel="stylesheet" href="../css/loginlandingpage.css">
+</head>
+<body>
+    <div class="untukloginpage">
+        <div class="login-wrapper">
+            <form action="" class="form">
+                <h2>LOGIN ADMIN</h2>
+                <div class="input-group">
+                    <input type="text" name="loginuser" id="email" required placeholder="Email Admin"/>
+                    <label for="loginuser" ></label>
+                </div>
+                <div class="input-group">
+                    <input 
+                    type="password" placeholder="Password"
+                    name="loginPassword" 
+                    id="password"
+                    required
+                    >
+                    <label for="loginPassword"></label>
+                </div>
+                <input type="submit" value="Login" class="submit-btn" onclick="index()"/>
+            </form>
+        </div>
+        <div class="image">
+            <img src="/assets/kartunposyandu.jpeg" width="300px" alt="">
+        </div>
+        <script>
+            function index(){
+                var email = document.getElementById("email").value;
+                var password =document.getElementById("password").value;
+                if (email=="admin@gmail.com" && password=="admin123"){
+                    window.location.assign("admin.html")
+                    alert("Berhasil Login");
+                }
+                else {
+                    alert("Invalid Information");
+                    return;
+                }
+            }
+        </script>
+        </div>
+        
+        <div class="home">
+            <a href="/src/Index.html">HOME</a>
+        </div>
+</body>
+</html>

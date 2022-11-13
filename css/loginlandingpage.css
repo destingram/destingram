@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+
+body{
+    background-color: azure;
+}
+
+div.untukloginpage{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    transform: translate(-50% -50%);
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    background-color: #c0c0c0;
+    padding: 20px;
+}
+
+div.untukloginpage div.login-wrapper{
+    width: 300px;
+}
+
+div.untukloginpage div.login-wrapper h2{
+    color: black;
+    font-style: italic;
+    margin-bottom: 15px;
+}
